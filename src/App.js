@@ -1,28 +1,19 @@
 // import logo from './logo.svg';
 // import './App.css';
-import Quotes from './components/quotesgenerator';
+import Calculatrice from './components/calculatrice';
+import {Clock} from './components/clock';
+import ParseToMkd from './components/MarkDownPerviewer';
+// import Quotes from './components/quotesgenerator';
 
 function App() {
 
-  return <Quotes/>
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
+  return <>
+    <ParseToMkd />
+    <>
+     <Clock/>
+     <Calculatrice/>
+     </>
+  </>
 }
 
 export default App;

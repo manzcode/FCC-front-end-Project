@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import data from './data/quotes.json'
+import ReactFCCtest from 'react-fcctest'
 
 const Data = data.quotes
 const nbr = Math.floor(Math.random()*100)
@@ -37,12 +38,12 @@ export default function Quotes () {
         console.log(bg, color)
     }
 
-    return <div className={`container-fluid`}>
+    return <div className={`container-fluid`} id="quote-box">
         <div className={`container card my-5 w-50 h-75 py-5`}>
-            <h2 className='text-center'>
-               "{state.quote}"           
+            <h2 className='text-center' id="text">
+               {`"${state.quote}"`}           
             </h2>
-            <p className='text-end'>
+            <p className='text-end' id="author">
                {state.author}
             </p>
             <div className="row">
@@ -50,7 +51,9 @@ export default function Quotes () {
                     <div className="row">
                     <div className="col-lg-3">
                         <button className="btn btn-change btn-primary">
-                <i className="fab fa-twitter"></i>
+               <a href="twitter.com/intent/tweet" id="tweet-quote">
+               <i className="fab fa-twitter"></i>
+               </a>
             </button>
                     </div>
                     <div className="col-lg-4 offset-3">
@@ -61,11 +64,12 @@ export default function Quotes () {
                     </div>
                 </div>
             <div className="col-lg-4 offset-4">
-            <button className="btn btn-change btn-primary" onClick={handleClick}>
+            <button className="btn btn-change btn-primary" onClick={handleClick} id="new-quote">
                 change
             </button>
             </div>
             </div>
         </div>
+        <ReactFCCtest/>
     </div>
 }
