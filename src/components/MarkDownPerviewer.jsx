@@ -65,12 +65,12 @@ export default function ParseToMkd() {
     return <div className="container">
       <div className="row justify-content-center">       
        <div className='my-2 form-group w-50'>
-        <label htmlFor="texte" className='text-center'>Editeur Textes :</label>
-        <textarea type="textarea" rows="8" className='form-control' value={input} onChange={onChange} />
+        <p className='text-center alert alert-success'>Editeur Textes :</p>
+        <textarea type="textarea" id='textearea' rows="8" className='form-control' value={input} onChange={onChange} />
         </div>
       </div>
         <div className="my-2">
-        <h2 className='text-center'>Previewer</h2>
+        <p className='text-center alert alert-success'>Previewer</p>
         <Previewer input={input} />
         </div>
         </div>

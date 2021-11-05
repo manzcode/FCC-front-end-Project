@@ -14,93 +14,61 @@ const Button = memo(({children, color, onClick, index}) => {
 
 
 export default function Calculatrice () {
-    const initialState = {
-        input: '', 
-        nbr: '0', 
-        result: false
-    }
-   
-    const [state, setstate] = useState(initialState);
+
     const [data, setData] = useState([])
+    const [input, setInput] = useState('')
+    const [nbr, setNbr] = useState('0')
+    // const [result, setResult] = useState(false)
 
     const handleClick = useCallback((index) => {
-        if(index === '.' && state.nbr[state.nbr.length - 1] === '.'){
-            return
-        } else if(index === '.' && state.nbr === '0'){
-            setstate(state => ({
-                input: state.input,
-                nbr: '0' + index,
-                result: state.result
-            }))
-        }else if(state.result) {
-            setData([])
-            setstate(state => ({
-                input: state.input,
-                nbr: '' + index,
-                result: state.result
-            }))
-        }else if(state.nbr === '0'){
-            setstate(state => ({
-                input: state.input,
-                nbr: '' + index,
-                result: state.result
-            }))
-        } else {
-            setstate(state => ({
-                input: state.input,
-                nbr: state.nbr + index,
-                result: state.result
-            }))
-        }
-        
-    }, [state.nbr, state.result])
+        setData(d => {
+            if(nbr === '+' || nbr === '*' || nbr === '/' ){
+                d[d.length - 1] = nbr
+                return [...d ]
+            }
+            return d
+        })
+        setInput(input => input + index)
+        setNbr(nbr => {
+            if(nbr === '0' || nbr === '+' || nbr === '*' || nbr === '/'){
+                nbr = ''
+            }
+            return nbr + index})
+    }, [nbr])
 
     const onResult = useCallback(() => {
-         const res = calcul([...data, +state.nbr])
-        //  console.log(divres, multipleres, plusres, negativesign)
-         setstate(state => ({
-            input: state.input +  state.nbr, 
-            nbr: res,
-            result: !state.result
-        }))
-        setData([])
-    }, [data, state.nbr])
+         let res = calcul([...data, +nbr])
+         console.log(typeof res)
+         setNbr(res)
+         setInput(res)
+         setData([])
+    }, [data, nbr])
 
     const onClear = useCallback(() => {
         setData([])
-        setstate({
-            input: '', 
-            nbr: '0', 
-            result: false
-        })
+        setInput('')
+        setNbr('0')
+        // setResult(false)
     }, [])
+
     const signClick = useCallback((sign) => {
-        if(state.result){
-            setData(d => [...d, +state.nbr, sign])
-            setstate(state => ({
-                input: '' + state.nbr + sign,
-                nbr: '0',
-                result: !state.result
-            }))
-        }else if(state.nbr === '0' && sign !== '-'){
-             return
-         } else if(state.nbr === '0' && sign === '-'){
-            setData(d => [...d])
-            setstate(state => ({
-                input: state.input,
-                nbr: '' + sign,
-                result: false
-            }))
-        } else {
-            setData(d => [...d, +state.nbr, sign])
-            setstate(state => ({
-                input: state.input +  state.nbr + sign,
-                nbr: '0',
-                result: false
-            }))
-        }
-        
-    }, [state.nbr, state.result])
+        setNbr(nbr =>{
+            nbr = ''
+            return nbr + sign
+        })
+        setInput(input => {
+            if(nbr === '-' || nbr === '+' || nbr === '*' || nbr === '/'){
+                let change = data.slice(0, -1).join('')
+                return change + sign 
+            }
+            return input + sign})
+        setData(d => {
+            if(nbr === '-' || nbr === '+' || nbr === '*' || nbr === '/'){
+                return [...d]
+            }
+            return [...d, +nbr, sign]
+        })
+    }, [nbr,data])
 
     const chiffre = [];
     for(let i = 1; i < 10; i++){
@@ -112,13 +80,14 @@ export default function Calculatrice () {
         </td>)
     }
     return <div className="container">
+        
         <div className="row justify-content-center">
         <table className="table table-bordered my-5 w-50 table-responsive">
             <thead>
                 <tr>
-                    <th  colSpan='4' className='text-end bg-dark text-light' id="display">
-                    <p>{state.input}</p>
-                    <p>{state.nbr}</p>
+                    <th  colSpan='4' className='text-end bg-dark text-light' >
+                    <p>{input}</p>
+                    <p id="display" >{nbr}</p>
                     </th>
                 </tr>
             </thead>
@@ -169,7 +138,7 @@ export default function Calculatrice () {
             </tbody>
         </table>
         </div>
-       
+        {JSON.stringify(data)}
         <ReactFCCtest/>
     </div>
 }

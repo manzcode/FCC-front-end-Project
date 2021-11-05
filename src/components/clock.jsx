@@ -10,7 +10,7 @@ const Button = memo(({children, onClick}) => {
 })
 
 const TimerValue = memo(({children}) => {
-    return <div className="mx-2 col-lg-3 alert alert-info text-center">
+    return <div className="mx-2 h-75 col-lg-3 alert alert-info text-center" style={{borderRadius: "50%"}}>
         {children}
     </div>
 })
@@ -57,15 +57,15 @@ const TheClock = ({first, second, onReset, disable}) => {
     if(countDown === 0){
         if(end) {
             setTimeBreak(c => c - 1)
-            setCountDown(5)
+            setCountDown(59)
         }else {
             setTimer(c => c - 1)
-            setCountDown(5)
+            setCountDown(59)
         }
     } 
 
     if(countDown === 0 && timer === 0){
-        document.getElementById('playthis').play()
+        document.getElementById('beep').play()
         setTimeBreak(c => c - 1)
         setEnd(true)
     } 
@@ -75,23 +75,39 @@ const TheClock = ({first, second, onReset, disable}) => {
     }
     
     return <TimerValue>
-    <p>
-        {!end ? timer : timeBreak} {`: ${countDown}`}
-    <audio id='playthis' src={song}></audio>
-     </p> 
+    <div id="timer-label">
+        <div id="time-left">
+        {end ? <span>
+            <p>
+               break
+            </p>
+            {timeBreak}
+        </span> : <span>
+            <p>
+                session
+            </p>
+            {timer}
+        </span>} {`: ${countDown}`}
+        </div>
+     </div> 
+    <audio id='beep' src={song}></audio>
+     <span id="start_stop">
         <Button onClick={start}>
             start
         </Button>
         <Button onClick={stop}>
         stop
         </Button>
+     </span>
+        <span id="reset">
         <Button onClick={reset}>
         reset
         </Button>
+        </span>
     </TimerValue>
 }
 
-const Counter = ({nbr, onDecrement, onIncrement, disable}) =>{
+const Counter = ({nbr, onDecrement, onIncrement, disable, id, decrlabel, increlabel , length}) =>{
     const decr = useCallback(() => {
         if(disable){
             return 
@@ -100,22 +116,31 @@ const Counter = ({nbr, onDecrement, onIncrement, disable}) =>{
     }, [disable, onDecrement])
 
     const incr = useCallback(() => {
-        if(disable){
+        if(disable || nbr > 59){
             return 
         }
         onIncrement()
-    }, [disable, onIncrement])
+    }, [disable, onIncrement, nbr])
 
     return <TimerValue>
-    <p>
+    <div>
+        <div id={id}>
+            {id}
+        </div>
+        <div id={length}>
         {nbr}
-    </p>
-    <Button onClick={decr}>
+        </div>
+    </div>
+    <span id={decrlabel}>   
+     <Button onClick={decr}>
         -
     </Button>
+    </span>
+    <span id={increlabel}>
     <Button onClick={incr}>
     +
     </Button>
+    </span>
 </TimerValue>
 }
 
@@ -148,11 +173,15 @@ export function Clock () {
     return <div className="container">
 
       <div className="row my-5 py-5 justify-content-center">
-      <Counter nbr={timer} onDecrement={decr} onIncrement={incr} disable={disable} />
+      <Counter nbr={timer} onDecrement={decr} 
+      onIncrement={incr} disable={disable} id='session-label' 
+      decrlabel="session-decrement" increlabel='session-increment' length='session-length' />
 
       <TheClock first={timer} second={breakTime} disable={setDisable} onReset={reset}  />
 
-      <Counter nbr={breakTime} onDecrement={decrBT} onIncrement={incrBT} disable={disable} />
+      <Counter nbr={breakTime} onDecrement={decrBT} 
+      onIncrement={incrBT} disable={disable} id='break-label' 
+      decrlabel="break-decrement" increlabel='break-increment' length='session-length' />
       </div>
     </div>
 } 
