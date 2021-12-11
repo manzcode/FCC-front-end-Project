@@ -4,13 +4,13 @@ import song from './data/build_testable-projects-fcc_audio_BeepSound.wav'
 
 
 const Button = memo(({children, onClick}) => {
-    return <button className="btn btn-primary" onClick={onClick}>
+    return <button className="btn btn-default" onClick={onClick}>
         {children}
     </button>
 })
 
 const TimerValue = memo(({children}) => {
-    return <div className="mx-2 h-75 col-lg-3 alert alert-info text-center" style={{borderRadius: "50%"}}>
+    return <div className="mx-2 h-75 col-lg-3 alert alert-info text-center" >
         {children}
     </div>
 })
@@ -93,15 +93,15 @@ const TheClock = ({first, second, onReset, disable}) => {
     <audio id='beep' src={song}></audio>
      <span id="start_stop">
         <Button onClick={start}>
-            start
+<i className="fas fa-play-circle"></i>
         </Button>
         <Button onClick={stop}>
-        stop
+<i className="fas fa-pause-circle"></i>
         </Button>
      </span>
         <span id="reset">
         <Button onClick={reset}>
-        reset
+<i className="fas fa-stop-circle"></i>
         </Button>
         </span>
     </TimerValue>
@@ -133,12 +133,14 @@ const Counter = ({nbr, onDecrement, onIncrement, disable, id, decrlabel, increla
     </div>
     <span id={decrlabel}>   
      <Button onClick={decr}>
-        -
+     <i className="far fa-arrow-alt-circle-down"></i>
+
     </Button>
     </span>
     <span id={increlabel}>
     <Button onClick={incr}>
-    +
+    <i className="far fa-arrow-alt-circle-up"></i>
+
     </Button>
     </span>
 </TimerValue>

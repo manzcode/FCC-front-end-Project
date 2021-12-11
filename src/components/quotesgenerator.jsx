@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import data from './data/quotes.json'
-import ReactFCCtest from 'react-fcctest'
 
 const Data = data.quotes
 const nbr = Math.floor(Math.random()*100)
@@ -70,6 +69,5 @@ export default function Quotes () {
             </div>
             </div>
         </div>
-        <ReactFCCtest/>
     </div>
 }

@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# React Project from FreeCodeCamp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce projet a été suggérer par freeCodeCamp. 
 
-## Available Scripts
+Ce sont des projets front-end specialement fait avec la techonologie REACT avec toute ses écosystèmes.
 
-In the project directory, you can run:
+Il y a 5 projet en tout.
 
-### `yarn start`
+## Radom quotes project 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+c'est une petit application qui permet de generer un citation au hasard.
+Quand vous cliquez sur le bouton **change**:
+    
+- Elle change la couleur de fonde qui est lui aussi choisit au hasard.
+- puis la citation.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Markdown Previewer
 
-### `yarn test`
+Celle-ci a __deux champ de texte__ dont:
+    
+1. l'une est le champ où vous entrez les textes qui doivent êtres changer en markdown.
+1. et l'autre est le rendu du texte qui lui est en markdown changer en HTML.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Drumbox 
 
-### `yarn build`
+cette application permet de jouer un instrument de musique quand vous cliquer sur les l'une des bouton visible sur l'écran.
+    
+1. Avant de jouer, appuyer sur le bouton au-dessous du mot **Power**.
+1. Puis jouer.
+1. Pour changer de type de son, appuyer sur le bouton au-dessous du mots **Bank**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Calculatrice
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+cette application est un calculatrice qui fait des calculs trés simple 
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Clock
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Pour activer la compte à reboure appuyer sur le **bouton play**.
+Pour augmenter ou diminuer la durée de la session, appuyer les bouton dans la case **gauche**.
+Pour augmenter ou diminuer la durée du break, appuyer les bouton dans la case **droite**.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Si vous voulez tester le projet, 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Cloner** le 
+- Puis entrer dans le dossier FCC-FRONT-END-PROJECT.
+- puis install les dependances
+    - taper la commande suivante: 
+```
+    npm install 
+```
+- pour lancer l'application: 
+    - taper la commande suivante: 
+```
+    yarn start
+```
+Cela va ouvrir dans votre navigateur le lien suivant http://localhost:3000
