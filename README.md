@@ -12,6 +12,8 @@ C'est une petite application qui permet de génerer une citation au hasard. Quan
     
 - la couleur de fond change, lui aussi est choisit au hasard
 - puis la citation.
+
+
 ![quotes](https://user-images.githubusercontent.com/47226716/145686890-07656b75-8e46-4cf3-89ff-2b10984adaba.png)
 
 
