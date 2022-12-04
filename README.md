@@ -7,6 +7,8 @@ Ce sont des projets front-end specialement fait avec la techonologie REACT avec 
 Ses project sont trés simple mais utile pour une évaluation de compétence.
 
  - #### visite le site pour le tester : [FCC project by Mario](https://fcc-project-by-mario-mans.netlify.app/)
+ 
+ ![Capture d’écran de 2022-12-04 23-24-05](https://user-images.githubusercontent.com/47226716/205513804-d73172f3-b1fb-43c1-93ae-552632e9fe4e.png)
 
 # Il y a 5 projet en tout.
 
